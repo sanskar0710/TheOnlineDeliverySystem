@@ -25,7 +25,7 @@ const PIZZA_MENU = [
     description: "Chunky paneer cubes marinated in spicy herbs, crunchy capsicum, and spicy red paprika topped with gooey cheese.",
     basePrice: 299.00,
     category: "veg-pizza",
-    image: "https://images.unsplash.com/photo-1594007654729-407ededc414a?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80",
     tags: ["Best Seller", "Spicy"],
     rating: 4.7
   },
