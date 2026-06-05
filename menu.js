@@ -35,7 +35,7 @@ const PIZZA_MENU = [
     description: "A garden fresh feast with gold corn, black olives, crisp capsicum, fresh red paprika, and red onions.",
     basePrice: 289.00,
     category: "veg-pizza",
-    image: "https://images.unsplash.com/photo-1571066811602-71683a3f680d?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=600&q=80",
     tags: ["Healthy", "Popular"],
     rating: 4.5
   },
@@ -85,7 +85,7 @@ const PIZZA_MENU = [
     description: "An all-time favorite! Spicy chicken pepperoni slices loaded with extra mozzarella cheese.",
     basePrice: 389.00,
     category: "nonveg-pizza",
-    image: "https://images.unsplash.com/photo-1544982503-9f984c14501a?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?auto=format&fit=crop&w=600&q=80",
     tags: ["Classic", "Popular"],
     rating: 4.7
   },
