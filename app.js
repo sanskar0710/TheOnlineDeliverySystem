@@ -3,14 +3,26 @@
 // ================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Safe localStorage parser helper
+  function safeLoadJSON(key, defaultValue) {
+    try {
+      const data = localStorage.getItem(key);
+      if (!data || data === "undefined" || data === "null") return defaultValue;
+      return JSON.parse(data);
+    } catch (e) {
+      console.error("Error parsing localStorage key:", key, e);
+      return defaultValue;
+    }
+  }
+
   // --- Global Application State ---
   let appState = {
-    currentUser: JSON.parse(localStorage.getItem("pizza_user")) || null,
-    cart: JSON.parse(localStorage.getItem("pizza_cart")) || [],
+    currentUser: safeLoadJSON("pizza_user", null),
+    cart: safeLoadJSON("pizza_cart", []),
     activePage: "home",
-    activeOrder: JSON.parse(localStorage.getItem("pizza_active_order")) || null,
-    orderHistory: JSON.parse(localStorage.getItem("pizza_order_history")) || [],
-    appliedCoupon: JSON.parse(localStorage.getItem("pizza_applied_coupon")) || null,
+    activeOrder: safeLoadJSON("pizza_active_order", null),
+    orderHistory: safeLoadJSON("pizza_order_history", []),
+    appliedCoupon: safeLoadJSON("pizza_applied_coupon", null),
     
     // Customizer Modal Temporary State
     customizer: {
@@ -731,7 +743,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("login-email").value.trim().toLowerCase();
     const password = document.getElementById("login-password").value;
 
-    const registeredUsers = JSON.parse(localStorage.getItem("registered_users")) || [];
+    const registeredUsers = safeLoadJSON("registered_users", []);
     const matchedUser = registeredUsers.find(u => u.email === email && u.password === password);
 
     if (matchedUser) {
@@ -752,7 +764,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("signup-email").value.trim().toLowerCase();
     const password = document.getElementById("signup-password").value;
 
-    const registeredUsers = JSON.parse(localStorage.getItem("registered_users")) || [];
+    const registeredUsers = safeLoadJSON("registered_users", []);
     if (registeredUsers.some(u => u.email === email)) {
       showToast("Email address already registered.", "error");
       return;
