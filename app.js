@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>${item.name}</h3>
           <p>${item.description}</p>
           <div class="menu-card-footer">
-            <span class="menu-card-price">$${item.basePrice.toFixed(2)}</span>
+            <span class="menu-card-price">₹${item.basePrice.toFixed(2)}</span>
             <button class="btn btn-primary btn-small action-menu-btn" data-id="${item.id}">
               ${isPizza ? "Customize" : "Add Basket"}
             </button>
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sizeSelectorsContainer.innerHTML += `
         <label class="selector-pill">
           <input type="radio" name="cust-size" value="${sizeKey}" ${selected}>
-          <span class="pill-label">${sizeObj.name} (+$${sizeObj.priceModifier.toFixed(2)})</span>
+          <span class="pill-label">${sizeObj.name} (+₹${sizeObj.priceModifier.toFixed(2)})</span>
         </label>
       `;
     });
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
       crustSelectorsContainer.innerHTML += `
         <label class="selector-pill">
           <input type="radio" name="cust-crust" value="${crustKey}" ${selected}>
-          <span class="pill-label">${crustObj.name} (+$${crustObj.priceModifier.toFixed(2)})</span>
+          <span class="pill-label">${crustObj.name} (+₹${crustObj.priceModifier.toFixed(2)})</span>
         </label>
       `;
     });
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <input type="checkbox" name="cust-topping" value="${toppingKey}">
           <span class="topping-label">
             <span>${toppingObj.name}</span>
-            <span>+$${toppingObj.price.toFixed(2)}</span>
+            <span>+₹${toppingObj.price.toFixed(2)}</span>
           </span>
         </label>
       `;
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price += EXTRA_TOPPINGS[toppingKey].price;
     });
 
-    customizerTotalPrice.textContent = `$${price.toFixed(2)}`;
+    customizerTotalPrice.textContent = `₹${price.toFixed(2)}`;
   }
 
   // --- Shopping Cart Management System ---
@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="qty-val">${item.quantity}</span>
               <button class="qty-btn inc-qty" data-id="${item.id}" data-details="${item.details}">+</button>
             </div>
-            <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+            <span class="cart-item-price">₹${(item.price * item.quantity).toFixed(2)}</span>
           </div>
         </div>
       `;
@@ -438,9 +438,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Calculate delivery charge
-    let delivery = 3.99;
+    let delivery = 40.00;
     const finalSubtotal = subtotal - discount;
-    if (finalSubtotal >= 35.00 || (appState.appliedCoupon === "FREESHIP")) {
+    if (finalSubtotal >= 350.00 || (appState.appliedCoupon === "FREESHIP")) {
       delivery = 0.00;
     }
 
@@ -449,18 +449,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let grandTotal = finalSubtotal + tax + delivery;
 
     // Render prices
-    cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+    cartSubtotalEl.textContent = `₹${subtotal.toFixed(2)}`;
     
     if (discount > 0) {
       discountRow.style.display = "flex";
-      cartDiscountEl.textContent = `-$${discount.toFixed(2)}`;
+      cartDiscountEl.textContent = `-₹${discount.toFixed(2)}`;
     } else {
       discountRow.style.display = "none";
     }
 
-    cartTaxEl.textContent = `$${tax.toFixed(2)}`;
-    cartDeliveryEl.textContent = delivery === 0 ? "FREE" : `$${delivery.toFixed(2)}`;
-    cartTotalEl.textContent = `$${grandTotal.toFixed(2)}`;
+    cartTaxEl.textContent = `₹${tax.toFixed(2)}`;
+    cartDeliveryEl.textContent = delivery === 0 ? "FREE" : `₹${delivery.toFixed(2)}`;
+    cartTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
     checkoutTotalEl.textContent = grandTotal.toFixed(2);
   }
 
@@ -675,7 +675,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${summaryItems}</p>
           <p style="font-size: 11px; margin-top: 4px; color: var(--text-muted);">${order.date} | Payment: ${order.paymentMethod} | Status: <strong style="text-transform: capitalize; color: var(--primary);">${order.status}</strong></p>
         </div>
-        <span class="history-price">$${order.total.toFixed(2)}</span>
+        <span class="history-price">₹${order.total.toFixed(2)}</span>
       `;
       orderHistoryList.appendChild(historyCard);
     });
