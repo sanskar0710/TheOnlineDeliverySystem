@@ -2,6 +2,8 @@
 
 A premium, fully interactive Single Page Application (SPA) for ordering pizzas online, localized for Indian users with real-time calculations, customization modals, and status tracking. Built with high-fidelity HTML5, CSS3, and modern client-side JavaScript.
 
+🚀 **Live Demo**: [Hosted on AWS Amplify](https://main.d34e9hjqwa36lk.amplifyapp.com/)
+
 ---
 
 ## ✨ Features
@@ -56,6 +58,10 @@ Open [http://localhost:8000](http://localhost:8000) in your web browser.
 npx http-server -p 8000
 ```
 Open [http://localhost:8000](http://localhost:8000) in your web browser.
+
+### Option 3: Cloud Hosting (AWS Amplify)
+The project is configured for continuous delivery on **AWS Amplify Hosting**. Pushing changes to the `main` branch of this GitHub repository will automatically trigger a rebuild and redeployment of the live website.
+* **Live Site Link**: [The Pizza House Live Demo](https://main.d34e9hjqwa36lk.amplifyapp.com/)
 
 ---
 
